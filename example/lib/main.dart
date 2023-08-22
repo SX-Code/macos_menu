@@ -53,7 +53,12 @@ class _MyAppState extends State<MyApp> {
             ])
           ],
           helpItems: [
-            MacosMenuItem(label: 'Visit Website', shortcut: null, onSelected: () {}),
+            MacosMenuItem(
+                label: 'Visit Website',
+                shortcut: const CharacterActivator("w", meta: true),
+                onSelected: () {
+                  debugPrint("goto website");
+                }),
           ],
           child: const Center(),
         ),

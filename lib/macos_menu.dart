@@ -171,8 +171,9 @@ class DefaultMacosMenuDelegate extends MacosMenuDelegate {
     }
 
     final helpItemRepresentations = [];
-    helpItemRepresentations
-        .addAll(const MacosMenuItem(label: 'Website').toChannelRepresentation(this, getId: _getId));
+    for (var item in helpItems) {
+      helpItemRepresentations.addAll(item.toChannelRepresentation(this, getId: _getId));
+    }
 
     // Currently there's only ever one window, but the channel's format allows
     // more than one window's menu hierarchy to be defined.
