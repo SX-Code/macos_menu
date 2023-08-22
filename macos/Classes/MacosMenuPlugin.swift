@@ -309,7 +309,7 @@ public class MacosMenuPlugin: NSObject, FlutterPlugin {
             // Return a copy because the original menu item might not have been removed
             // from the main menu yet, and AppKit doesn't like menu items that exist in
             // more than one menu at a time.
-            return found
+            return found.copy() as? NSMenuItem
         }
         return nil
     }
