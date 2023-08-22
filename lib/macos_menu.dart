@@ -719,32 +719,32 @@ class MacosMenuItem with Diagnosticable {
 ///
 ///  * [MacosMenuBar] which takes these items for inclusion in a
 ///    platform-rendered menu bar.
-class PlatformProvidedMenuItem extends MacosMenuItem {
+class MacosPlatformProvidedMenuItem extends MacosMenuItem {
   /// Creates a const [PlatformProvidedMenuItem] of the appropriate type. Throws if the
   /// platform doesn't support the given default menu type.
   ///
   /// The [type] argument is required.
-  const PlatformProvidedMenuItem({
+  const MacosPlatformProvidedMenuItem({
     required this.type,
     this.enabled = true,
   }) : super(label: ''); // The label is ignored for platform provided menus.
 
   /// The type of default menu this is.
   ///
-  /// See [PlatformProvidedMenuItemType] for the different types available. Not
+  /// See [MacosPlatformProvidedMenuItemType] for the different types available. Not
   /// all of the types will be available on every platform. Use [hasMenu] to
   /// determine if the current platform has a given default menu item.
   ///
   /// If the platform does not support the given [type], then the menu item will
   /// throw an [ArgumentError] in debug mode.
-  final PlatformProvidedMenuItemType type;
+  final MacosPlatformProvidedMenuItemType type;
 
   /// True if this [PlatformProvidedMenuItem] should be enabled or not.
   final bool enabled;
 
   /// Checks to see if the given default menu type is supported on this
   /// platform.
-  static bool hasMenu(PlatformProvidedMenuItemType menu) {
+  static bool hasMenu(MacosPlatformProvidedMenuItemType menu) {
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
       case TargetPlatform.iOS:
@@ -753,19 +753,19 @@ class PlatformProvidedMenuItem extends MacosMenuItem {
       case TargetPlatform.windows:
         return false;
       case TargetPlatform.macOS:
-        return const <PlatformProvidedMenuItemType>{
-          PlatformProvidedMenuItemType.about,
-          PlatformProvidedMenuItemType.quit,
-          PlatformProvidedMenuItemType.servicesSubmenu,
-          PlatformProvidedMenuItemType.hide,
-          PlatformProvidedMenuItemType.hideOtherApplications,
-          PlatformProvidedMenuItemType.showAllApplications,
-          PlatformProvidedMenuItemType.startSpeaking,
-          PlatformProvidedMenuItemType.stopSpeaking,
-          PlatformProvidedMenuItemType.toggleFullScreen,
-          PlatformProvidedMenuItemType.minimizeWindow,
-          PlatformProvidedMenuItemType.zoomWindow,
-          PlatformProvidedMenuItemType.arrangeWindowsInFront,
+        return const <MacosPlatformProvidedMenuItemType>{
+          MacosPlatformProvidedMenuItemType.about,
+          MacosPlatformProvidedMenuItemType.quit,
+          MacosPlatformProvidedMenuItemType.servicesSubmenu,
+          MacosPlatformProvidedMenuItemType.hide,
+          MacosPlatformProvidedMenuItemType.hideOtherApplications,
+          MacosPlatformProvidedMenuItemType.showAllApplications,
+          MacosPlatformProvidedMenuItemType.startSpeaking,
+          MacosPlatformProvidedMenuItemType.stopSpeaking,
+          MacosPlatformProvidedMenuItemType.toggleFullScreen,
+          MacosPlatformProvidedMenuItemType.minimizeWindow,
+          MacosPlatformProvidedMenuItemType.zoomWindow,
+          MacosPlatformProvidedMenuItemType.arrangeWindowsInFront,
         }.contains(menu);
     }
   }
@@ -820,7 +820,7 @@ class PlatformProvidedMenuItem extends MacosMenuItem {
 /// You can tell if the platform provides the given menu using the
 /// [PlatformProvidedMenuItem.hasMenu] method.
 // Must be kept in sync with the plugin code's enum of the same name.
-enum PlatformProvidedMenuItemType {
+enum MacosPlatformProvidedMenuItemType {
   /// The system provided "About" menu item.
   ///
   /// On macOS, this is the `orderFrontStandardAboutPanel` default menu.

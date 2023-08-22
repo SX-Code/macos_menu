@@ -382,6 +382,9 @@ public class MacosMenuPlugin: NSObject, FlutterPlugin {
             submenu.autoenablesItems = false
             for child in children {
                 if let newItem = menuItemFromFlutterRepresentation(child) {
+                    if let menu = newItem.menu {
+                        menu.removeItem(newItem)
+                    }
                     submenu.addItem(newItem)
                 }
             }
@@ -405,6 +408,8 @@ public class MacosMenuPlugin: NSObject, FlutterPlugin {
         
         let originalMenu = NSApp.mainMenu
         let helpMenu = originalMenu?.items.last
+        
+        NSApp.mainMenu = NSMenu();
         
         // Remove everything but the help menu
         if let originalMenu, !originalMenu.items.isEmpty {
