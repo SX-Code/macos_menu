@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:macos_menu/macos_menu.dart';
 
 void main() {
@@ -64,6 +65,53 @@ class _MyAppState extends State<MyApp> {
                 label: 'Test 3',
                 shortcut: const CharacterActivator("3", meta: true),
                 onSelected: () => _callAction("Test 3"),
+              ),
+            ]),
+            MacosMenu(label: "Functions", menus: [
+              MacosMenuItem(
+                label: 'Escape',
+                shortcut: const SingleActivator(LogicalKeyboardKey.escape),
+                onSelected: () => _callAction("Esc"),
+              ),
+              MacosMenuItem(
+                label: 'F1',
+                shortcut: const SingleActivator(LogicalKeyboardKey.f1),
+                onSelected: () => _callAction("F1"),
+              ),
+              MacosMenuItem(
+                label: 'F2',
+                shortcut: const SingleActivator(LogicalKeyboardKey.f2),
+                onSelected: () => _callAction("F2"),
+              ),
+              MacosMenuItem(
+                label: 'F3',
+                shortcut: const SingleActivator(LogicalKeyboardKey.f3),
+                onSelected: () => _callAction("F3"),
+              ),
+              MacosMenuItem(
+                label: 'F4',
+                shortcut: const SingleActivator(LogicalKeyboardKey.f4),
+                onSelected: () => _callAction("F4"),
+              ),
+              MacosMenuItem(
+                label: 'F5',
+                shortcut: const SingleActivator(LogicalKeyboardKey.f5),
+                onSelected: () => _callAction("F5"),
+              ),
+              MacosMenuItem(
+                label: 'F6',
+                shortcut: const SingleActivator(LogicalKeyboardKey.f6),
+                onSelected: () => _callAction("F6"),
+              ),
+              MacosMenuItem(
+                label: 'F7',
+                shortcut: const SingleActivator(LogicalKeyboardKey.f7),
+                onSelected: () => _callAction("F7"),
+              ),
+              MacosMenuItem(
+                label: 'F8',
+                shortcut: const SingleActivator(LogicalKeyboardKey.f8),
+                onSelected: () => _callAction("F8"),
               ),
             ])
           ],

@@ -327,7 +327,6 @@ public class MacosMenuPlugin: NSObject, FlutterPlugin {
             return createPlatformProvidedMenu(platformProvidedMenu)
         }
         
-
         var keyEquivalent = ""
 
         if let key = representation[kShortcutCharacterKey] as? String {
@@ -339,18 +338,10 @@ public class MacosMenuPlugin: NSObject, FlutterPlugin {
                 if let trigger = specialKeys[triggerKeyId.intValue] {
                     keyEquivalent = NSString(format: "%C", trigger) as String
                 } else {
-                    // TODO:
-//                        keyEquivalent = NSString(format: "%C", triggerKeyId)
-//                        keyEquivalent = [[NSString
-//                            stringWithFormat:@"%C", (unichar)([triggerKeyId unsignedLongLongValue] &
-//                                                              kFlutterKeyIdValueMask)] lowercaseString];
+                    keyEquivalent = (NSString(format: "%C", (unichar)(triggerKeyId.uint64Value & uint64(kFlutterKeyIdValueMask))) as String).lowercased()
                 }
-            } else {
-                
             }
-
         }
-        
         
         let identifier = representation[kIdKey] as? NSNumber
         
