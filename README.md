@@ -1,6 +1,6 @@
 # macos_menu
 
-A drop-in replacement for `PlatformMenuBar` that retains the menu search functionality.
+A drop-in replacement for `PlatformMenuBar` that retains the menu window and help functionality.
 
 # Usage
 
