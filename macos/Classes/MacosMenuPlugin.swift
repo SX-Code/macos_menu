@@ -404,7 +404,7 @@ public class MacosMenuPlugin: NSObject, FlutterPlugin {
         
         // Remove everything but the help menu
         if let originalMenu, !originalMenu.items.isEmpty {
-            while originalMenu.items.count > 1 {
+            while originalMenu.items.count > 2 {
                 originalMenu.items.remove(at: 0)
             }
         }
