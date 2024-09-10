@@ -457,7 +457,7 @@ public class MacosMenuPlugin: NSObject, FlutterPlugin {
         // Add the new menus
         if let originalMenu, !originalMenu.items.isEmpty {
             for item in items {
-                originalMenu.insertItem(item, at: max(0, originalMenu.items.count - 1))
+                originalMenu.insertItem(item, at: max(0, originalMenu.items.count - 2))
             }
         }
         
